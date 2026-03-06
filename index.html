@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KENZ STORE | QRIS LANGSUNG</title>
+  <title>KENZ | STORE</title>
   <style>
     * {
       margin: 0;
@@ -19,26 +19,31 @@
       overflow-x: hidden;
     }
 
-    /* 🖼️ BACKGROUND DARI FILE bg.png */
-    .custom-bg {
+    /* 🎥 BACKGROUND VIDEO */
+    .video-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
-      background: url('bg.png') center/cover no-repeat;
-      filter: brightness(0.7); /* biar teks tetap kebaca */
+      overflow: hidden;
     }
 
-    /* overlay gelap biar kontras */
+    .video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* biar video menutupi seluruh area */
+    }
+
+    /* overlay gelap biar teks jelas */
     .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.5); /* sedikit lebih gelap dari versi gambar */
       z-index: 1;
       pointer-events: none;
     }
@@ -348,8 +353,14 @@
   </style>
 </head>
 <body>
-  <!-- 🖼️ BG.PNG DI SINI + OVERLAY GELAP -->
-  <div class="custom-bg"></div>
+  <!-- 🎥 BACKGROUND VIDEO MP4 -->
+  <div class="video-bg">
+    <video autoplay loop muted playsinline>
+      <source src="bg.mp4" type="video/mp4">
+      <!-- Fallback jika browser tidak mendukung video -->
+      Your browser does not support the video tag.
+    </video>
+  </div>
   <div class="overlay"></div>
 
   <div class="content">
